@@ -8,7 +8,8 @@ contract Basic is ERC20 {
         _mint(msg.sender, _initialSupply);
     }
 
-    function mint(uint _amount) public {
+    function mint(uint _amount) public payable {
+        require(msg.value == 1000000000000000000, "Wrong AA amount");
         _mint(msg.sender, _amount);
     }
 

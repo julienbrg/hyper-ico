@@ -28,7 +28,7 @@ describe("Basic ERC-20", function () {
         it("Should mint 1 unit", async function () {
             const { basic, alice } = await loadFixture(deployContracts)
             const amount = ethers.parseEther("1")
-            await basic.mint(amount)
+            await basic.mint(amount, {value: ethers.parseEther("1")})
             expect(await basic.balanceOf(alice.address)).to.be.equal(
                 ethers.parseEther("10001")
             )
